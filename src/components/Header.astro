@@ -1,0 +1,44 @@
+---
+import TwitchIcon from "@/components/Icons/Twitch.astro";
+import SearchIcon from "@/components/Icons/Search.astro";
+import CrownIcon from "@/components/Icons/Crown.astro";
+import InboxIcon from "@/components/Icons/Inbox.astro";
+import WhisperIcon from "@/components/Icons/Whisper.astro";
+import BitsIcon from "@/components/Icons/Bits.astro";
+import BatteryIcon from "@/components/Icons/Battery.astro";
+import UserIcon from "@/components/Icons/User.astro";
+---
+
+<header
+  class="w-full text-white flex justify-between items-center px-3 py-1 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"
+>
+  <nav class="flex gap-4 font-bold text-xl items-center">
+    <TwitchIcon size="size-7" />
+
+    <a>Following</a>
+    <a>Browse</a>
+  </nav>
+
+  <form class="flex rounded overflow-hidden">
+    <input
+      type="search"
+      placeholder="Search"
+      class="border border-gray-600 bg-transparent p-2 w-80 outline-purple-500 outline-2 rounded-s"
+    />
+    <button type="submit" class="bg-[#34343b] grid place-items-center p-1"
+      ><SearchIcon size="size-6" /></button
+    >
+  </form>
+
+  <section class="flex">
+    <CrownIcon size="size-6" />
+    <InboxIcon size="size-6" />
+    <WhisperIcon size="size-6" />
+    <BitsIcon size="size-6" />
+    <div>
+      <BatteryIcon size="size-6" />
+      <p>Get Ad-Free</p>
+    </div>
+    <UserIcon size="size-6" />
+  </section>
+</header>
