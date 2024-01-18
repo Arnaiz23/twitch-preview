@@ -8,6 +8,7 @@ import BitsIcon from "@/components/Icons/Bits.astro";
 import BatteryIcon from "@/components/Icons/Battery.astro";
 import UserIcon from "@/components/Icons/User.astro";
 import DotsVertical from "@/components/Icons/DotsVertical.astro";
+import ButtonIcons from "@/components/ButtonIcons.astro";
 ---
 
 <header
@@ -16,12 +17,12 @@ import DotsVertical from "@/components/Icons/DotsVertical.astro";
   <nav class="flex gap-4 font-bold text-xl items-center">
     <TwitchIcon size="size-7" />
 
-    <a>Following</a>
-    <a>Browse</a>
+    <a href="#" class="hidden md:block">Following</a>
+    <a href="#" class="hidden md:block">Browse</a>
     <DotsVertical />
   </nav>
 
-  <form class="flex rounded overflow-hidden">
+  <form class="hidden md:flex rounded overflow-hidden">
     <input
       type="search"
       placeholder="Search"
@@ -33,12 +34,16 @@ import DotsVertical from "@/components/Icons/DotsVertical.astro";
   </form>
 
   <section class="flex items-center justify-center gap-3">
-    <CrownIcon size="size-6" />
-    <InboxIcon size="size-6" />
+    <ButtonIcons title="New from Prime">
+      <CrownIcon size="size-6" />
+    </ButtonIcons>
+    <ButtonIcons title="Notifications">
+      <InboxIcon size="size-6" />
+    </ButtonIcons>
     <WhisperIcon size="size-6" />
     <BitsIcon size="size-6" />
     <div
-      class="flex items-center justify-evenly gap-2 bg-[#34343b] py-1 px-2 rounded text-sm font-bold text-pretty"
+      class="items-center justify-evenly gap-2 bg-[#34343b] py-1 px-2 rounded text-sm font-bold text-pretty hidden md:flex"
     >
       <BatteryIcon size="size-6" />
       <p>Get Ad-Free</p>
