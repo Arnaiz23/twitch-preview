@@ -10,7 +10,7 @@ interface Channels {
   viewers: number;
 }
 
-const channels: Channels[] = [
+const followedChannels: Channels[] = [
   {
     channel: "DessT3",
     image:
@@ -40,7 +40,7 @@ const channels: Channels[] = [
     <button>F</button>
   </div>
   {
-    channels.map(({ channel, categorie, image, viewers }) => (
+    followedChannels.map(({ channel, categorie, image, viewers }) => (
       <ChannelInfoAside
         channel={channel}
         categorie={categorie}
