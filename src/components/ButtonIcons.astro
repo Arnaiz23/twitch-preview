@@ -6,7 +6,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<span class="hover:bg-zinc-700 p-1 rounded transition-all relative group">
+<span class="hover:bg-zinc-700 p-1 rounded transition-all relative group cursor-pointer">
   <slot />
   <div
     class="absolute top-[120%] left-2/4 -translate-x-2/4 w-max opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"
