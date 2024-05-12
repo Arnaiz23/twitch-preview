@@ -1,0 +1,58 @@
+---
+import ChannelInfoAside from "@/components/ChannelInfoAside.astro";
+import CollapseIcon from "@/components/Icons/Collapse.astro";
+import ButtonIcons from "@/components/ButtonIcons.astro";
+
+interface Channels {
+  channel: string;
+  image: string;
+  categorie: string;
+  viewers: number;
+}
+
+const channels: Channels[] = [
+  {
+    channel: "DessT3",
+    image:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/12e13232-fdcd-4e75-88d3-f73682a03e24-profile_image-70x70.png",
+    categorie: "Grand Theft Auto V",
+    viewers: 16.6,
+  },
+  {
+    channel: "Mixwell",
+    image:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/6d3b4513-6824-4912-848c-dc046ee262ad-profile_image-70x70.png",
+    categorie: "VALORANT",
+    viewers: 34,
+  },
+];
+---
+
+<aside class="h-full bg-[#1f1f23] text-white">
+  <div class="w-full flex items-center justify-between p-3">
+    <h2 class="capitalize font-bold">For You</h2>
+    <ButtonIcons title="Collapse" position="right">
+      <button><CollapseIcon /></button>
+    </ButtonIcons>
+  </div>
+  <div>
+    <h3 class="uppercase">Followed Channels</h3>
+    <button>F</button>
+  </div>
+  {
+    channels.map(({ channel, categorie, image, viewers }) => (
+      <ChannelInfoAside
+        channel={channel}
+        categorie={categorie}
+        image={image}
+        viewers={viewers}
+      />
+    ))
+  }
+</aside>
+
+<style>
+  aside {
+    grid-area: aside;
+  }
+</style>

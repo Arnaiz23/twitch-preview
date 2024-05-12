@@ -34,16 +34,16 @@ import ButtonIcons from "@/components/ButtonIcons.astro";
   </form>
 
   <section class="flex items-center justify-center gap-3">
-    <ButtonIcons title="New from Prime">
+    <ButtonIcons title="New from Prime" position="bottom">
       <CrownIcon size="size-5" />
     </ButtonIcons>
-    <ButtonIcons title="Notifications">
+    <ButtonIcons title="Notifications" position="bottom">
       <InboxIcon size="size-5" />
     </ButtonIcons>
-    <ButtonIcons title="Whispers">
+    <ButtonIcons title="Whispers" position="bottom">
       <WhisperIcon size="size-5" />
     </ButtonIcons>
-    <ButtonIcons title="Get Bits">
+    <ButtonIcons title="Get Bits" position="bottom">
       <BitsIcon size="size-5" />
     </ButtonIcons>
     <div
@@ -57,3 +57,9 @@ import ButtonIcons from "@/components/ButtonIcons.astro";
     </span>
   </section>
 </header>
+
+<style>
+header {
+  grid-area: header;
+}
+</style>

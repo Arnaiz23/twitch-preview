@@ -1,0 +1,26 @@
+---
+interface Props {
+  channel: string;
+  image: string;
+  categorie: string;
+  viewers: number;
+}
+
+const { channel, image, categorie, viewers } = Astro.props;
+---
+
+<div class="flex items-center justify-around gap-2 h-11 p-1">
+  <img
+    src={image}
+    alt={`${channel} avatar`}
+    class="size-7 rounded-full"
+  />
+  <div class="w-32">
+    <h4 class="font-bold text-sm">{channel}</h4>
+    <h5 class="text-gray-400 text-xs">{categorie}</h5>
+  </div>
+  <div class="flex gap-1 items-center h-full">
+    <span class="size-2 block bg-red-600 rounded-full"></span>
+    <p class="text-xs">{viewers}k</p>
+  </div>
+</div>

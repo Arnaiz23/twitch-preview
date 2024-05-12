@@ -1,12 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import Aside from "@/components/Aside.astro";
 ---
 
 <Layout title="auronplay - Twitch">
   <main class="w-full min-h-dvh">
     <Header />
+    <Aside />
   </main>
 </Layout>
 
-<style></style>
+<style>
+main {
+  display: grid;
+  grid-template-columns: 240px 1328px 340px;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: "header header header" "aside video chat";
+}
+</style>
