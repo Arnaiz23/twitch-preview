@@ -3,6 +3,7 @@ import ChannelInfoAside from "@/components/ChannelInfoAside.astro";
 import CollapseIcon from "@/components/Icons/Collapse.astro";
 import ButtonIcons from "@/components/ButtonIcons.astro";
 import SortIcon from "@/components/Icons/Sort.astro";
+import ButtonText from "./ButtonText.astro";
 
 interface Channels {
   channel: string;
@@ -27,7 +28,7 @@ const followedChannels: Channels[] = [
       "https://static-cdn.jtvnw.net/jtv_user_pictures/6d3b4513-6824-4912-848c-dc046ee262ad-profile_image-70x70.png",
     categorie: "VALORANT",
     viewers: 34,
-    description: "¿Radiant en 2 días?"
+    description: "¿Radiant en 2 días?",
   },
 ];
 ---
@@ -46,16 +47,22 @@ const followedChannels: Channels[] = [
     <button><SortIcon /></button>
   </div>
   {
-    followedChannels.map(({ channel, categorie, image, viewers, description }) => (
-      <ChannelInfoAside
-        channel={channel}
-        categorie={categorie}
-        image={image}
-        description={description}
-        viewers={viewers}
-      />
-    ))
+    followedChannels.map(
+      ({ channel, categorie, image, viewers, description }) => (
+        <ChannelInfoAside
+          channel={channel}
+          categorie={categorie}
+          image={image}
+          description={description}
+          viewers={viewers}
+        />
+      ),
+    )
   }
+  <div class="flex items-center justify-between px-3 py-2">
+    <ButtonText text="Show more" show />
+    <ButtonText text="Show less" show={false} />
+  </div>
 </aside>
 
 <style>

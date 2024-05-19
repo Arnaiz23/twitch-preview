@@ -1,0 +1,12 @@
+---
+interface Props {
+  text: string;
+  show: boolean
+}
+
+const { text, show } = Astro.props;
+---
+
+<button class={`text-violet-400 text-xs hover:underline hover:text-violet-500 ${show ? 'block' : 'hidden'}`}>
+  {text}
+</button>
