@@ -4,12 +4,13 @@ interface Props {
   image: string;
   categorie: string;
   viewers: number;
+  description: string
 }
 
-const { channel, image, categorie, viewers } = Astro.props;
+const { channel, image, categorie, viewers, description } = Astro.props;
 ---
 
-<div class="flex items-center justify-around gap-2 h-11 p-1 cursor-pointer hover:bg-[#26262c]">
+<article class="flex items-center justify-around gap-2 h-11 p-1 cursor-pointer hover:bg-[#26262c] relative group">
   <img
     src={image}
     alt={`${channel} avatar`}
@@ -23,4 +24,7 @@ const { channel, image, categorie, viewers } = Astro.props;
     <span class="size-2 block bg-red-600 rounded-full"></span>
     <p class="text-xs">{viewers}k</p>
   </div>
-</div>
+  <div class="absolute left-[105%] bg-[#13151a] p-3 rounded-md w-48 hidden group-hover:grid">
+    <p class="text-xs">{description}</p>
+  </div>
+</article>
