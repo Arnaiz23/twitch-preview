@@ -2,6 +2,7 @@
 import ChannelInfoAside from "@/components/ChannelInfoAside.astro";
 import CollapseIcon from "@/components/Icons/Collapse.astro";
 import ButtonIcons from "@/components/ButtonIcons.astro";
+import SortIcon from "@/components/Icons/Sort.astro";
 
 interface Channels {
   channel: string;
@@ -29,15 +30,15 @@ const followedChannels: Channels[] = [
 ---
 
 <aside class="h-full bg-[#1f1f23] text-white">
-  <div class="w-full flex items-center justify-between p-3">
+  <div class="w-full flex items-center justify-between px-3 py-1">
     <h2 class="capitalize font-bold">For You</h2>
     <ButtonIcons title="Collapse" position="right">
       <button><CollapseIcon /></button>
     </ButtonIcons>
   </div>
-  <div>
-    <h3 class="uppercase">Followed Channels</h3>
-    <button>F</button>
+  <div class="flex justify-between px-3 py-2 items-center hover:bg-[#26262c] cursor-pointer">
+    <h3 class="uppercase font-bold text-xs">Followed Channels</h3>
+    <button><SortIcon /></button>
   </div>
   {
     followedChannels.map(({ channel, categorie, image, viewers }) => (
