@@ -9,7 +9,7 @@ interface Props {
 const { channel, image, categorie, viewers } = Astro.props;
 ---
 
-<div class="flex items-center justify-around gap-2 h-11 p-1">
+<div class="flex items-center justify-around gap-2 h-11 p-1 cursor-pointer hover:bg-[#26262c]">
   <img
     src={image}
     alt={`${channel} avatar`}
