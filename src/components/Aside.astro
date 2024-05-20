@@ -4,7 +4,8 @@ import CollapseIcon from "@/components/Icons/Collapse.astro";
 import ButtonIcons from "@/components/ButtonIcons.astro";
 import SortIcon from "@/components/Icons/Sort.astro";
 import ButtonText from "./ButtonText.astro";
-import FollowingIcon from "./Icons/Following.astro";
+import FollowingIcon from "@/components/Icons/Following.astro";
+import VideoIcon from "@/components/Icons/Video.astro";
 
 interface Channels {
   channel: string;
@@ -36,7 +37,7 @@ const followedChannels: Channels[] = [
 
 <aside class="h-full bg-[#1f1f23] text-white">
   <div class="w-full grid place-items-center xl:hidden p-3">
-    <FollowingIcon classes="size-5" />
+    <FollowingIcon classes="size-5 fill-zinc-400" />
   </div>
   <div class="w-full xl:flex items-center justify-between px-3 py-1 hidden">
     <h2 class="capitalize font-bold">For You</h2>
@@ -68,6 +69,12 @@ const followedChannels: Channels[] = [
   <div class="hidden xl:flex items-center justify-between px-3 py-2">
     <ButtonText text="Show more" show />
     <ButtonText text="Show less" show={false} />
+  </div>
+  <div class="w-full grid place-items-center xl:hidden p-3">
+    <VideoIcon classes="size-5 fill-zinc-400" />
+  </div>
+  <div class="w-full xl:flex px-3 py-1 hidden">
+    <h3 class="uppercase font-bold text-xs">Recommended channels</h3>
   </div>
 </aside>
 
