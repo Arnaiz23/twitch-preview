@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="relative group cursor-pointer md:hidden">
+  <slot />
+  <div
+    class="absolute top-[120%] left-2/4 -translate-x-2/4 opacity-0 group-hover:opacity-100 transition-opacity duration-75"
+  >
+    <span
+      class="absolute left-2/4 border-b-8 border-b-white border-r-[6px] border-r-transparent border-l-[6px] border-l-transparent -translate-x-2/4"
+    ></span>
+    <span class="bg-white text-black text-xs p-1 rounded-sm">{title}</span>
+  </div>
+</div>
