@@ -10,9 +10,9 @@ interface Props {
 const { channel, image, categorie, viewers, description } = Astro.props;
 ---
 
-<li>
+<li class="cursor-pointer">
   <article
-    class="hidden xl:flex items-center justify-around gap-2 h-11 p-1 cursor-pointer hover:bg-[#26262c] relative group"
+    class="hidden xl:flex items-center justify-around gap-2 h-11 p-1 hover:bg-[#26262c] relative group"
   >
     <img src={image} alt={`${channel} avatar`} class="size-7 rounded-full" />
     <div class="w-32">
@@ -31,7 +31,19 @@ const { channel, image, categorie, viewers, description } = Astro.props;
   </article>
 
   <!-- TODO: Create the tooltip -->
-  <article class="xl:hidden grid place-items-center w-full">
+  <article class="xl:hidden grid place-items-center w-full relative group">
     <img src={image} alt={`${channel} avatar`} class="size-7 rounded-full" />
+    <div class="w-52 absolute left-[120%] bg-[#13151a] p-3 rounded-md group-hover:flex flex-col justify-start items-start gap-1 hidden">
+      <header class="flex gap-2 w-full justify-start items-center text-xs text-violet-400">
+        <p>{channel}</p>
+        <span class="bg-violet-400 size-1 rounded-full"></span>
+        <p>{categorie}</p>
+      </header>
+      <p class="text-sm">{description}</p>
+      <footer class="flex items-center gap-2 w-full">
+        <span class="size-2 rounded-full bg-red-600"></span>
+        <p class="text-xs text-zinc-400">Live | {viewers}k viewers</p>
+      </footer>
+    </div>
   </article>
 </li>
