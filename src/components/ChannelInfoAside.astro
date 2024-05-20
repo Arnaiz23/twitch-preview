@@ -4,27 +4,34 @@ interface Props {
   image: string;
   categorie: string;
   viewers: number;
-  description: string
+  description: string;
 }
 
 const { channel, image, categorie, viewers, description } = Astro.props;
 ---
 
-<article class="flex items-center justify-around gap-2 h-11 p-1 cursor-pointer hover:bg-[#26262c] relative group">
-  <img
-    src={image}
-    alt={`${channel} avatar`}
-    class="size-7 rounded-full"
-  />
-  <div class="w-32">
-    <h4 class="font-bold text-sm">{channel}</h4>
-    <h5 class="text-gray-400 text-xs">{categorie}</h5>
-  </div>
-  <div class="flex gap-1 items-center h-full">
-    <span class="size-2 block bg-red-600 rounded-full"></span>
-    <p class="text-xs">{viewers}k</p>
-  </div>
-  <div class="absolute left-[105%] bg-[#13151a] p-3 rounded-md w-48 hidden group-hover:grid">
-    <p class="text-xs">{description}</p>
-  </div>
-</article>
+<li>
+  <article
+    class="hidden xl:flex items-center justify-around gap-2 h-11 p-1 cursor-pointer hover:bg-[#26262c] relative group"
+  >
+    <img src={image} alt={`${channel} avatar`} class="size-7 rounded-full" />
+    <div class="w-32">
+      <h4 class="font-bold text-sm">{channel}</h4>
+      <h5 class="text-gray-400 text-xs">{categorie}</h5>
+    </div>
+    <div class="flex gap-1 items-center h-full">
+      <span class="size-2 block bg-red-600 rounded-full"></span>
+      <p class="text-xs">{viewers}k</p>
+    </div>
+    <div
+      class="absolute left-[105%] bg-[#13151a] p-3 rounded-md w-48 hidden group-hover:grid"
+    >
+      <p class="text-xs">{description}</p>
+    </div>
+  </article>
+
+  <!-- TODO: Create the tooltip -->
+  <article class="xl:hidden grid place-items-center w-full">
+    <img src={image} alt={`${channel} avatar`} class="size-7 rounded-full" />
+  </article>
+</li>

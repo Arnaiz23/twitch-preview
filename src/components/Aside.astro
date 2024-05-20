@@ -4,6 +4,7 @@ import CollapseIcon from "@/components/Icons/Collapse.astro";
 import ButtonIcons from "@/components/ButtonIcons.astro";
 import SortIcon from "@/components/Icons/Sort.astro";
 import ButtonText from "./ButtonText.astro";
+import FollowingIcon from "./Icons/Following.astro";
 
 interface Channels {
   channel: string;
@@ -34,32 +35,37 @@ const followedChannels: Channels[] = [
 ---
 
 <aside class="h-full bg-[#1f1f23] text-white">
-  <div class="w-full flex items-center justify-between px-3 py-1">
+  <div class="w-full grid place-items-center xl:hidden p-3">
+    <FollowingIcon classes="size-5" />
+  </div>
+  <div class="w-full xl:flex items-center justify-between px-3 py-1 hidden">
     <h2 class="capitalize font-bold">For You</h2>
     <ButtonIcons title="Collapse" position="right">
       <button><CollapseIcon /></button>
     </ButtonIcons>
   </div>
   <div
-    class="flex justify-between px-3 py-2 items-center hover:bg-[#26262c] cursor-pointer"
+    class="hidden xl:flex justify-between px-3 py-2 items-center hover:bg-[#26262c] cursor-pointer"
   >
     <h3 class="uppercase font-bold text-xs">Followed Channels</h3>
     <button><SortIcon /></button>
   </div>
-  {
-    followedChannels.map(
-      ({ channel, categorie, image, viewers, description }) => (
-        <ChannelInfoAside
-          channel={channel}
-          categorie={categorie}
-          image={image}
-          description={description}
-          viewers={viewers}
-        />
-      ),
-    )
-  }
-  <div class="flex items-center justify-between px-3 py-2">
+  <ul class="flex flex-col gap-3 xl:gap-0">
+    {
+      followedChannels.map(
+        ({ channel, categorie, image, viewers, description }) => (
+          <ChannelInfoAside
+            channel={channel}
+            categorie={categorie}
+            image={image}
+            description={description}
+            viewers={viewers}
+          />
+        ),
+      )
+    }
+  </ul>
+  <div class="hidden xl:flex items-center justify-between px-3 py-2">
     <ButtonText text="Show more" show />
     <ButtonText text="Show less" show={false} />
   </div>
