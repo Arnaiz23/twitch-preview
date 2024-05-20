@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   position: string;
+  classes?: string
 }
 
-const { title, position } = Astro.props;
+const { title, position, classes } = Astro.props;
 
 const POSITIONS: { [key: string]: { tooltip: string; triangle: string } } = {
   bottom: {
@@ -19,7 +20,7 @@ const POSITIONS: { [key: string]: { tooltip: string; triangle: string } } = {
 ---
 
 <span
-  class="hover:bg-zinc-700 p-1 rounded transition-all relative group cursor-pointer"
+  class={`hover:bg-zinc-700 p-1 rounded transition-all relative group cursor-pointer ${classes}`}
 >
   <slot />
   <div

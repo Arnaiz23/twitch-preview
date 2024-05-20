@@ -46,8 +46,11 @@ import ButtonIcons from "@/components/ButtonIcons.astro";
     <ButtonIcons title="Get Bits" position="bottom">
       <BitsIcon size="size-5" />
     </ButtonIcons>
+    <ButtonIcons title="Get Ad-Free" position="bottom" classes="xl:hidden">
+      <BatteryIcon size="size-5" />
+    </ButtonIcons>
     <div
-      class="items-center justify-evenly gap-2 bg-[#34343b] py-1 px-2 rounded text-sm font-bold text-pretty hidden md:flex"
+      class="items-center justify-evenly gap-2 bg-[#34343b] py-1 px-2 rounded text-sm font-bold text-pretty hidden xl:flex"
     >
       <BatteryIcon size="size-5" />
       <p class="text-sm font-semibold">Get Ad-Free</p>
@@ -63,3 +66,7 @@ header {
   grid-area: header;
 }
 </style>
+
+<!-- 1200px - Remove the Get Add-Free button and just leave the power icon -->
+<!-- Input search responsive, only the button stay with the same size -->
+<!-- 767px - Remove the search | Remove the "Following" and "Browse" and change for icons -->
