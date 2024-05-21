@@ -3,7 +3,7 @@ interface Props {
   channel: string;
   image: string;
   categorie: string;
-  viewers: number;
+  viewers: string;
   description: string;
 }
 
@@ -21,7 +21,7 @@ const { channel, image, categorie, viewers, description } = Astro.props;
     </div>
     <div class="flex gap-1 items-center h-full">
       <span class="size-2 block bg-red-600 rounded-full"></span>
-      <p class="text-xs">{viewers}k</p>
+      <p class="text-xs">{viewers}</p>
     </div>
     <div
       class="absolute left-[105%] bg-[#13151a] p-3 rounded-md w-48 hidden group-hover:grid"
@@ -42,7 +42,7 @@ const { channel, image, categorie, viewers, description } = Astro.props;
       <p class="text-sm">{description}</p>
       <footer class="flex items-center gap-2 w-full">
         <span class="size-2 rounded-full bg-red-600"></span>
-        <p class="text-xs text-zinc-400">Live | {viewers}k viewers</p>
+        <p class="text-xs text-zinc-400">Live | {viewers} viewers</p>
       </footer>
     </div>
   </article>

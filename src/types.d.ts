@@ -2,6 +2,6 @@ export interface Channels {
   channel: string;
   image: string;
   categorie: string;
-  viewers: number;
+  viewers: string;
   description: string;
 }
