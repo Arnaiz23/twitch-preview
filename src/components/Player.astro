@@ -3,6 +3,20 @@ import ShareIcon from "./Icons/Share.astro";
 import DotsVertical from "./Icons/DotsVertical.astro";
 import ButtonIcons from "./ButtonIcons.astro";
 import ButtonText from "./ButtonText.astro";
+
+import type { Channels } from "@/types";
+
+const streamData: Channels = {
+  channel: "DessT3",
+  image:
+    "https://static-cdn.jtvnw.net/jtv_user_pictures/12e13232-fdcd-4e75-88d3-f73682a03e24-profile_image-70x70.png",
+  categorie: "Grand Theft Auto V",
+  viewers: 16.6,
+  description: "EL MAGO BO! | LA LIGA DE LA JUSTICIA | !ig",
+};
+
+const date = new Date("05-20-2024")
+const relativeTime = new Intl.RelativeTimeFormat('en', { style: 'short' }).format(date.getDay() - new Date().getDay(), 'day') 
 ---
 
 <section id="player" class="w-full">
@@ -13,7 +27,7 @@ import ButtonText from "./ButtonText.astro";
   <section class="w-full">
     <header class="w-full p-2">
       <div class="w-full flex justify-between items-center p-2">
-        <p class="text-zinc-300 font-bold text-sm">Yesterday</p>
+        <p class="text-zinc-300 font-bold text-sm">{relativeTime}</p>
         <div class="w-max flex gap-1 items-center justify-evenly text-white">
           <button
             class="flex gap-1 items-center justify-evenly bg-[#2e2e35] hover:bg-zinc-700 text-white py-1 px-2 rounded-sm font-semibold text-xs"
@@ -27,11 +41,11 @@ import ButtonText from "./ButtonText.astro";
         </div>
       </div>
       <div class="text-white flex flex-col items-start gap-2">
-        <h2 class="font-bold text-lg">EL MAGO BO! | RECTA FINAL | !ig</h2>
+        <h2 class="font-bold text-lg">{streamData.description}</h2>
         <div class="flex gap-2 items-center justify-start">
-          <ButtonText text="Grand Theft Auto V" show />
+          <ButtonText text={streamData.categorie} show />
           <span class="bg-violet-400 size-1 rounded-full"></span>
-          <p class="text-xs text-zinc-400">472,469 views</p>
+          <p class="text-xs text-zinc-400">{streamData.viewers} views</p>
         </div>
       </div>
     </header>
