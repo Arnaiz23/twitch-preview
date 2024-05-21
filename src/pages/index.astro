@@ -10,7 +10,7 @@ import Chat from "@/components/Chat.astro";
   <main class="w-full h-dvh">
     <Header />
     <Aside />
-    <!-- <Player /> -->
+    <Player />
     <!-- <Chat /> -->
   </main>
 </Layout>
@@ -19,7 +19,7 @@ import Chat from "@/components/Chat.astro";
 main {
   display: grid;
   /* grid-template-columns: 240px 1328px 340px; */
-  grid-template-columns: 240px 2fr 1fr;
+  grid-template-columns: 240px 4fr 1fr;
   grid-template-rows: 50px 1fr;
   grid-template-areas: "header header header" "aside video chat";
 }

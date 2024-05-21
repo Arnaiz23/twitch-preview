@@ -1,8 +1,46 @@
-<section class="w-full"></section>
+---
+import ShareIcon from "./Icons/Share.astro";
+import DotsVertical from "./Icons/DotsVertical.astro";
+import ButtonIcons from "./ButtonIcons.astro";
+import ButtonText from "./ButtonText.astro";
+---
+
+<section id="player" class="w-full">
+  <picture class="w-full">
+    <source srcset="/preview.webp" type="image/webp" />
+    <img src="/preview.png" class="aspect-video" alt="Video preview" />
+  </picture>
+  <section class="w-full">
+    <header class="w-full p-2">
+      <div class="w-full flex justify-between items-center p-2">
+        <p class="text-zinc-300 font-bold text-sm">Yesterday</p>
+        <div class="w-max flex gap-1 items-center justify-evenly text-white">
+          <button
+            class="flex gap-1 items-center justify-evenly bg-[#2e2e35] hover:bg-zinc-700 text-white py-1 px-2 rounded-sm font-semibold text-xs"
+          >
+            <ShareIcon />
+            Share
+          </button>
+          <ButtonIcons title="Video options" position="bottom">
+            <DotsVertical size="size-5" />
+          </ButtonIcons>
+        </div>
+      </div>
+      <div class="text-white flex flex-col items-start gap-2">
+        <h2 class="font-bold text-lg">EL MAGO BO! | RECTA FINAL | !ig</h2>
+        <div class="flex gap-2 items-center justify-start">
+          <ButtonText text="Grand Theft Auto V" show />
+          <span class="bg-violet-400 size-1 rounded-full"></span>
+          <p class="text-xs text-zinc-400">472,469 views</p>
+        </div>
+      </div>
+    </header>
+  </section>
+</section>
 
 <style>
-section {
-  grid-area: video;
-  border: 1px solid red;
-}
+  #player {
+    grid-area: video;
+    border: 1px solid red;
+  }
 </style>
