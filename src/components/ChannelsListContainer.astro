@@ -1,0 +1,25 @@
+---
+import ButtonText from "./ButtonText.astro";
+import ChannelAsideList from "./ChannelAsideList.astro";
+import type { Channels } from "@/types";
+
+interface Props {
+  channels: Channels[];
+  hover: boolean
+}
+
+const { channels, hover } = Astro.props;
+
+const hoverClass = hover && "hover:bg-[#26262c] cursor-pointer"
+---
+
+<div
+  class={`hidden xl:flex justify-between px-3 py-2 items-center ${hoverClass}`}
+>
+  <slot />
+</div>
+<ChannelAsideList channels={channels} />
+<div class="hidden xl:flex items-center justify-between px-3 py-2">
+  <ButtonText text="Show more" show />
+  <ButtonText text="Show less" show={false} />
+</div>

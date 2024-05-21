@@ -1,19 +1,12 @@
 ---
-import ChannelInfoAside from "@/components/ChannelInfoAside.astro";
 import CollapseIcon from "@/components/Icons/Collapse.astro";
 import ButtonIcons from "@/components/ButtonIcons.astro";
 import SortIcon from "@/components/Icons/Sort.astro";
-import ButtonText from "./ButtonText.astro";
 import FollowingIcon from "@/components/Icons/Following.astro";
 import VideoIcon from "@/components/Icons/Video.astro";
+import ChannelsListContainer from "./ChannelsListContainer.astro";
 
-interface Channels {
-  channel: string;
-  image: string;
-  categorie: string;
-  viewers: number;
-  description: string;
-}
+import type { Channels } from "@/types";
 
 const followedChannels: Channels[] = [
   {
@@ -33,49 +26,56 @@ const followedChannels: Channels[] = [
     description: "¿Radiant en 2 días?",
   },
 ];
+
+const recommendedChannels: Channels[] = [
+  {
+    channel: "13elucky",
+    image:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/35adde79-b2d1-4359-9f6d-081ca39bb19a-profile_image-70x70.png",
+    categorie: "Just Chatting",
+    viewers: 386,
+    description: "🌴 MARBELLA VICE 2 +18 🌴 | ENMA MORADO 💟 |#Día23",
+  },
+];
+
+const alsoChannels: Channels[] = [
+  {
+    channel: "SaraLyche",
+    image:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/42985a55-abb3-40ec-84d1-453e3895c77c-profile_image-70x70.png",
+    categorie: "Grand Theft Auto V",
+    viewers: 146,
+    description: "🌴 Marbella Vice II 🌴| 🌈AMPLIABLE🌈 INSPECTORA JEFE CLARA ROJO 🌹 #29 ❗Prime ❗Viewerattack ❗Historia",
+  },
+];
 ---
 
 <aside class="h-full bg-[#1f1f23] text-white">
-  <div class="w-full grid place-items-center xl:hidden p-3">
-    <FollowingIcon classes="size-5 fill-zinc-400" />
-  </div>
   <div class="w-full xl:flex items-center justify-between px-3 py-1 hidden">
     <h2 class="capitalize font-bold">For You</h2>
     <ButtonIcons title="Collapse" position="right">
       <button><CollapseIcon /></button>
     </ButtonIcons>
   </div>
-  <div
-    class="hidden xl:flex justify-between px-3 py-2 items-center hover:bg-[#26262c] cursor-pointer"
-  >
+  <div class="w-full grid place-items-center xl:hidden p-3">
+    <FollowingIcon classes="size-5 fill-zinc-400" />
+  </div>
+  <ChannelsListContainer channels={followedChannels} hover={true}>
     <h3 class="uppercase font-bold text-xs">Followed Channels</h3>
     <button><SortIcon /></button>
-  </div>
-  <ul class="flex flex-col gap-3 xl:gap-0">
-    {
-      followedChannels.map(
-        ({ channel, categorie, image, viewers, description }) => (
-          <ChannelInfoAside
-            channel={channel}
-            categorie={categorie}
-            image={image}
-            description={description}
-            viewers={viewers}
-          />
-        ),
-      )
-    }
-  </ul>
-  <div class="hidden xl:flex items-center justify-between px-3 py-2">
-    <ButtonText text="Show more" show />
-    <ButtonText text="Show less" show={false} />
-  </div>
+  </ChannelsListContainer>
   <div class="w-full grid place-items-center xl:hidden p-3">
     <VideoIcon classes="size-5 fill-zinc-400" />
   </div>
-  <div class="w-full xl:flex px-3 py-1 hidden">
-    <h3 class="uppercase font-bold text-xs">Recommended channels</h3>
+  <ChannelsListContainer channels={recommendedChannels} hover={false}>
+    <h3 class="uppercase font-bold text-xs">Recommended Channels</h3>
+  </ChannelsListContainer>
+  <div class="w-full grid place-items-center xl:hidden p-3">
+    <VideoIcon classes="size-5 fill-zinc-400" />
   </div>
+  <ChannelsListContainer channels={alsoChannels} hover={false}>
+    <h3 class="uppercase font-bold text-xs">DessT3 viewers also watch</h3>
+  </ChannelsListContainer>
 </aside>
 
 <style>

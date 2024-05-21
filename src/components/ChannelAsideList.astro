@@ -1,0 +1,24 @@
+---
+import type { Channels } from "@/types";
+import ChannelInfoAside from "@/components/ChannelInfoAside.astro";
+
+interface Props {
+  channels: Channels[];
+}
+
+const { channels } = Astro.props;
+---
+
+<ul class="flex flex-col gap-3 xl:gap-0">
+  {
+    channels.map(({ channel, categorie, image, viewers, description }) => (
+      <ChannelInfoAside
+        channel={channel}
+        categorie={categorie}
+        image={image}
+        description={description}
+        viewers={viewers}
+      />
+    ))
+  }
+</ul>
