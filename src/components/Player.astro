@@ -1,8 +1,12 @@
 ---
-import ShareIcon from "./Icons/Share.astro";
-import DotsVertical from "./Icons/DotsVertical.astro";
-import ButtonIcons from "./ButtonIcons.astro";
-import ButtonText from "./ButtonText.astro";
+import ShareIcon from "@/components/Icons/Share.astro";
+import DotsVertical from "@/components/Icons/DotsVertical.astro";
+import ButtonIcons from "@/components/ButtonIcons.astro";
+import ButtonText from "@/components/ButtonText.astro";
+import LikeIcon from "@/components/Icons/Like.astro";
+import BellIcon from "@/components/Icons/Bell.astro";
+import StarIcon from "@/components/Icons/Star.astro";
+import ArrowDownIcon from "@/components/Icons/ArrowDown.astro";
 
 import type { Channels } from "@/types";
 
@@ -11,15 +15,17 @@ const streamData: Channels = {
   image:
     "https://static-cdn.jtvnw.net/jtv_user_pictures/12e13232-fdcd-4e75-88d3-f73682a03e24-profile_image-70x70.png",
   categorie: "Grand Theft Auto V",
-  viewers: 16.6,
+  viewers: "16.6",
   description: "EL MAGO BO! | LA LIGA DE LA JUSTICIA | !ig",
 };
 
-const date = new Date("05-20-2024")
-const relativeTime = new Intl.RelativeTimeFormat('en', { style: 'short' }).format(date.getDay() - new Date().getDay(), 'day') 
+const date = new Date("05-20-2024");
+const relativeTime = new Intl.RelativeTimeFormat("en", {
+  style: "short",
+}).format(date.getDay() - new Date().getDay(), "day");
 ---
 
-<section id="player" class="w-full">
+<section id="player" class="w-full overflow-y-auto">
   <picture class="w-full">
     <source srcset="/preview.webp" type="image/webp" />
     <img src="/preview.png" class="aspect-video" alt="Video preview" />
@@ -35,7 +41,7 @@ const relativeTime = new Intl.RelativeTimeFormat('en', { style: 'short' }).forma
             <ShareIcon />
             Share
           </button>
-          <ButtonIcons title="Video options" position="bottom">
+          <ButtonIcons title="Video options" position="bottom" hidden={true}>
             <DotsVertical size="size-5" />
           </ButtonIcons>
         </div>
@@ -49,6 +55,31 @@ const relativeTime = new Intl.RelativeTimeFormat('en', { style: 'short' }).forma
         </div>
       </div>
     </header>
+  </section>
+  <section
+    class="w-full flex items-start justify-between bg-[#1f1f23] text-white p-3 rounded-xl"
+  >
+    <div class="flex items-start justify-start">
+      <img
+        src="https://static-cdn.jtvnw.net/jtv_user_pictures/12e13232-fdcd-4e75-88d3-f73682a03e24-profile_image-70x70.png"
+        alt="DessT3 avatar"
+      class="rounded-full"
+      />
+      <div class="text-[13px]">
+        <h2 class="text-xl font-semibold">{streamData.channel}</h2>
+        <p>Last live 21 hours ago</p>
+        <p>576K followers</p>
+      </div>
+    </div>
+    <div>
+      <button><LikeIcon class="size-5 fill-white" /></button>
+      <button><BellIcon class="size-5 fill-white" /></button>
+      <button>
+        <StarIcon class="size-5 fill-white" />
+        Suscribe
+        <ArrowDownIcon class="size-5 fill-white" />
+      </button>
+    </div>
   </section>
 </section>
 
