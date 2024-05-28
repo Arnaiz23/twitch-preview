@@ -1,22 +1,27 @@
 ---
-type Position = "bottom" | "right"
+import clsx from "clsx";
+
+type Position = "bottom" | "right";
 
 interface Props {
   title: string;
   position: Position;
-  classes?: string
+  classes?: string;
+  hidden?: boolean;
 }
 
-const { title, position, classes } = Astro.props;
+const { title, position, classes, hidden = false } = Astro.props;
 
 const POSITIONS: { [key: string]: { tooltip: string; triangle: string } } = {
   bottom: {
     tooltip: "top-[140%] left-2/4 -translate-x-2/4",
-    triangle: "left-2/4 border-b-8 border-b-white border-r-[6px] border-r-transparent border-l-[6px] border-l-transparent -translate-x-2/4",
+    triangle:
+      "left-2/4 border-b-8 border-b-white border-r-[6px] border-r-transparent border-l-[6px] border-l-transparent -translate-x-2/4",
   },
   right: {
     tooltip: "top-0 left-2/4 translate-x-2/4",
-    triangle: "top-2 border-r-8 border-r-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent -translate-x-full",
+    triangle:
+      "top-2 border-r-8 border-r-white border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent -translate-x-full",
   },
 };
 ---
@@ -26,10 +31,12 @@ const POSITIONS: { [key: string]: { tooltip: string; triangle: string } } = {
 >
   <slot />
   <div
-    class={`absolute ${POSITIONS[position].tooltip} w-max opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none`}
+    class={clsx(
+      `absolute ${POSITIONS[position].tooltip} w-max opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none`,
+      { 'hidden': hidden },
+    )}
   >
-    <span
-      class={`absolute ${POSITIONS[position].triangle} w-0 h-0 bottom-full`}
+    <span class={`absolute ${POSITIONS[position].triangle} w-0 h-0 bottom-full`}
     ></span>
     <p class="p-1 bg-white text-black w-max rounded text-xs font-bold">
       {title}
