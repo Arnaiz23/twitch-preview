@@ -1,0 +1,95 @@
+---
+import ArrowRightIcon from "@/components/Icons/ArrowRight.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+interface Streams {
+  duration: number;
+  title: string;
+  categorie: string;
+  channel: string;
+  categorieImage: string;
+  date: number;
+  views: string;
+  cover: string;
+}
+
+function getDuration(duration: number) {
+  const hours = Math.floor(duration / 3600);
+  const minutes = String(Math.floor((duration % 3600) / 60)).padStart(2, "0");
+  const seconds = String(duration % 60).padStart(2, "0");
+
+  return `${hours}:${minutes}:${seconds}`;
+}
+
+const streams: Streams[] = [
+  {
+    duration: 18280,
+    title: "BO |  ULTIMO DÍA EN MARBELLA  | HASTA SIEMPRE   !ig",
+    categorie: "Grand Theft Auto V",
+    channel: "DessT3",
+    categorieImage:
+      "https://static-cdn.jtvnw.net/ttv-boxart/32982_IGDB-40x56.jpg",
+    date: 1717097740000,
+    views: "264K",
+    cover:
+      "https://static-cdn.jtvnw.net/cf_vods/dgeft87wbj63p/b05008889d5494e1cd37_desst3_40701245509_1717090781//thumb/thumb0-320x180.jpg",
+  },
+];
+---
+
+<section class="w-full text-white p-5">
+  <header class="flex items-center justify-start gap-2 w-full">
+    <h3 class="text-lg">{title}</h3>
+    <a
+      href="#"
+      class="text-violet-400 hover:text-violet-500 flex items-center w-max text-sm"
+    >
+      View All
+      <ArrowRightIcon class="size-5 fill-violet-400" />
+    </a>
+  </header>
+  <div>
+    {
+      streams.map(
+        ({
+          title,
+          duration,
+          categorieImage,
+          categorie,
+          date,
+          views,
+          cover,
+          channel,
+        }) => (
+          <article class="w-[300px]">
+            <picture class="relative text-[13px] w-full aspect-video block h-[163px]">
+              <img
+                src={cover}
+                alt={`Cover for the stream ${title} of ${channel}`}
+                class="aspect-video w-full h-full"
+              />
+              <span class="absolute bg-zinc-800 px-[5px] top-2 left-2 rounded-sm">
+                {getDuration(duration)}
+              </span>
+              <span class="absolute bg-zinc-800 px-[5px] bottom-2 left-2 rounded-sm">
+                {views} views
+              </span>
+              <span class="absolute bg-zinc-800 px-[5px] bottom-2 right-2 rounded-sm">
+                {new Intl.RelativeTimeFormat("en", { style: "short" }).format(
+                  new Date(date).getDay() - new Date().getDay(),
+                  "day",
+                )}
+              </span>
+            </picture>
+            <h4 title={title}>{title}</h4>
+          </article>
+        ),
+      )
+    }
+  </div>
+</section>
