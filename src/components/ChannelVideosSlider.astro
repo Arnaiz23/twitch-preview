@@ -1,12 +1,6 @@
 ---
 import ArrowRightIcon from "@/components/Icons/ArrowRight.astro";
 
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
-
 interface Streams {
   duration: number;
   title: string;
@@ -18,6 +12,13 @@ interface Streams {
   cover: string;
 }
 
+interface Props {
+  title: string;
+  streams: Streams[]
+}
+
+const { title, streams } = Astro.props;
+
 function getDuration(duration: number) {
   const hours = Math.floor(duration / 3600);
   const minutes = String(Math.floor((duration % 3600) / 60)).padStart(2, "0");
@@ -25,21 +26,6 @@ function getDuration(duration: number) {
 
   return `${hours}:${minutes}:${seconds}`;
 }
-
-const streams: Streams[] = [
-  {
-    duration: 18280,
-    title: "BO |  ULTIMO DÍA EN MARBELLA  | HASTA SIEMPRE   !ig",
-    categorie: "Grand Theft Auto V",
-    channel: "DessT3",
-    categorieImage:
-      "https://static-cdn.jtvnw.net/ttv-boxart/32982_IGDB-40x56.jpg",
-    date: 1717097740000,
-    views: "264K",
-    cover:
-      "https://static-cdn.jtvnw.net/cf_vods/dgeft87wbj63p/b05008889d5494e1cd37_desst3_40701245509_1717090781//thumb/thumb0-320x180.jpg",
-  },
-];
 ---
 
 <section class="w-full text-white p-5">
