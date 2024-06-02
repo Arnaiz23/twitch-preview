@@ -9,7 +9,8 @@ import StarIcon from "@/components/Icons/Star.astro";
 import ArrowDownIcon from "@/components/Icons/ArrowDown.astro";
 import ChannelVideosSlider from "@/components/ChannelVideosSlider.astro";
 
-import streams from "@/data/recentBroadcasts.json"
+import streams from "@/data/recentBroadcasts.json";
+import highlightsStreams from "@/data/highlights.json";
 
 import type { Channels } from "@/types";
 
@@ -128,11 +129,14 @@ const relativeTime = new Intl.RelativeTimeFormat("en", {
     </select>
   </section>
   <ChannelVideosSlider title="Recent broadcasts" streams={streams} />
+  <ChannelVideosSlider
+    title="Recent highlights and uploads"
+    streams={highlightsStreams}
+  />
 </section>
 
 <style>
   #player {
     grid-area: video;
-    border: 1px solid red;
   }
 </style>

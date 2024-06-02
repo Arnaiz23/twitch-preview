@@ -1,5 +1,6 @@
 ---
 import ArrowRightIcon from "@/components/Icons/ArrowRight.astro";
+import DotsVerticalIcon from "./Icons/DotsVertical.astro";
 
 interface Streams {
   duration: number;
@@ -14,7 +15,7 @@ interface Streams {
 
 interface Props {
   title: string;
-  streams: Streams[]
+  streams: Streams[];
 }
 
 const { title, streams } = Astro.props;
@@ -30,7 +31,7 @@ function getDuration(duration: number) {
 
 <section class="w-full text-white p-5">
   <header class="flex items-center justify-start gap-2 w-full">
-    <h3 class="text-lg">{title}</h3>
+    <h3 class="text-lg font-semibold">{title}</h3>
     <a
       href="#"
       class="text-violet-400 hover:text-violet-500 flex items-center w-max text-sm"
@@ -39,7 +40,9 @@ function getDuration(duration: number) {
       <ArrowRightIcon class="size-5 fill-violet-400" />
     </a>
   </header>
-  <div>
+  <div
+    class="snap-x snap-mandatory w-full overflow-y-hidden overflow-x-auto flex items-center justify-start gap-2 py-2"
+  >
     {
       streams.map(
         ({
@@ -52,8 +55,8 @@ function getDuration(duration: number) {
           cover,
           channel,
         }) => (
-          <article class="w-[300px]">
-            <picture class="relative text-[13px] w-full aspect-video block h-[163px]">
+          <article class="min-w-[300px] snap-start cursor-pointer group">
+            <picture class="relative text-[13px] w-full aspect-video block h-[163px] group-hover:scale-105 transition-transform duration-500">
               <img
                 src={cover}
                 alt={`Cover for the stream ${title} of ${channel}`}
@@ -72,7 +75,26 @@ function getDuration(duration: number) {
                 )}
               </span>
             </picture>
-            <h4 title={title}>{title}</h4>
+            <div class="flex w-full items-start justify-start gap-2 py-2">
+              <picture class="min-w-10 min-h-14">
+                <img
+                  class="w-full"
+                  src={categorieImage}
+                  alt={`${categorie} cover`}
+                />
+              </picture>
+              <div>
+                <h4
+                  class="text-sm font-semibold w-[216px] overflow-x-hidden whitespace-nowrap overflow-ellipsis"
+                  title={title}
+                >
+                  {title}
+                </h4>
+                <p class="text-zinc-400 text-[13px]">{channel}</p>
+                <p class="text-zinc-400 text-[13px]">{categorie}</p>
+              </div>
+              <DotsVerticalIcon class="size-5" />
+            </div>
           </article>
         ),
       )
