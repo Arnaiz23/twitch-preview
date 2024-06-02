@@ -11,22 +11,22 @@ import Chat from "@/components/Chat.astro";
     <Header />
     <Aside />
     <Player />
-    <!-- <Chat /> -->
+    <Chat />
   </main>
 </Layout>
 
 <style>
-main {
-  display: grid;
-  /* grid-template-columns: 240px 1328px 340px; */
-  grid-template-columns: 240px 4fr 1fr;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: "header header header" "aside video chat";
-}
-
-@media screen and (width <= 1280px) {
   main {
-    grid-template-columns: 65px 3fr 1fr;
+    display: grid;
+    /* grid-template-columns: 240px 1328px 340px; */
+    grid-template-columns: 240px 4fr 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: "header header header" "aside video chat";
   }
-}
+
+  @media screen and (width <= 1280px) {
+    main {
+      grid-template-columns: 65px 3fr 1fr;
+    }
+  }
 </style>
