@@ -29,4 +29,11 @@ import Chat from "@/components/Chat.astro";
       grid-template-columns: 65px 3fr 1fr;
     }
   }
+
+  @media screen and (width <= 633px) {
+    main {
+      grid-template-columns: 65px 3fr;
+      grid-template-areas: "header header" "aside video";
+    }
+  }
 </style>

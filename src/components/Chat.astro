@@ -33,4 +33,10 @@ import ChatMessagesList from "./ChatMessagesList.astro";
 
     height: calc(100dvh - 50px);
   }
+
+  @media screen and (width <= 633px) {
+    .chat-container {
+      display: none;
+    }
+  }
 </style>
