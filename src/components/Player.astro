@@ -12,6 +12,8 @@ import ChannelVideosSlider from "@/components/ChannelVideosSlider.astro";
 import streams from "@/data/recentBroadcasts.json";
 import highlightsStreams from "@/data/highlights.json";
 
+import { getFormatDate } from "@/utils/formatDate";
+
 import type { Channels } from "@/types";
 
 const streamData: Channels = {
@@ -22,11 +24,6 @@ const streamData: Channels = {
   viewers: "16.6",
   description: "EL MAGO BO! | LA LIGA DE LA JUSTICIA | !ig",
 };
-
-const date = new Date("05-20-2024");
-const relativeTime = new Intl.RelativeTimeFormat("en", {
-  style: "short",
-}).format(date.getDay() - new Date().getDay(), "day");
 ---
 
 <section id="player" class="w-full overflow-y-auto">
@@ -37,7 +34,9 @@ const relativeTime = new Intl.RelativeTimeFormat("en", {
   <section class="w-full p-5">
     <header class="w-full">
       <div class="w-full flex justify-between items-center p-2">
-        <p class="text-zinc-300 font-bold text-sm">{relativeTime}</p>
+        <p class="text-zinc-300 font-bold text-sm">
+          {getFormatDate({ timestamp: 1716235547000 })}
+        </p>
         <div class="w-max flex gap-1 items-center justify-evenly text-white">
           <button
             class="flex gap-1 items-center justify-evenly bg-[#2e2e35] hover:bg-zinc-700 text-white py-1 px-2 rounded-sm font-semibold text-xs"
