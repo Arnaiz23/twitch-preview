@@ -2,6 +2,8 @@
 import ArrowRightIcon from "@/components/Icons/ArrowRight.astro";
 import DotsVerticalIcon from "./Icons/DotsVertical.astro";
 
+import {getFormatDate} from "@/utils/formatDate"
+
 interface Streams {
   duration: number;
   title: string;
@@ -69,10 +71,7 @@ function getDuration(duration: number) {
                 {views} views
               </span>
               <span class="absolute bg-zinc-800 px-[5px] bottom-2 right-2 rounded-sm">
-                {new Intl.RelativeTimeFormat("en", { style: "short" }).format(
-                  new Date(date).getDay() - new Date().getDay(),
-                  "day",
-                )}
+          {getFormatDate({timestamp: date})}
               </span>
             </picture>
             <div class="flex w-full items-start justify-start gap-2 py-2">
