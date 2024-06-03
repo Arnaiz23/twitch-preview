@@ -1,0 +1,16 @@
+---
+const COLORS = [ '#CBDE5A', '#28E264', '#7EDC57', '#86F0A1', '#49EF35', '#DBF662', '#ACD732', '#A9F66F', '#EBEF66', '#1DFA27' ];
+
+interface Props {
+  message: string;
+  user: string;
+}
+
+const { user, message } = Astro.props;
+---
+
+<li class="text-[13px]">
+  <b style={`color: ${COLORS[Math.floor(Math.random() * COLORS.length)]}`}
+    >{user}</b
+  >: {message}
+</li>

@@ -1,0 +1,15 @@
+---
+import ChatMessage from "./ChatMessage.astro";
+
+import messagesJson from "@/data/messages.json";
+---
+
+<section class="h-full w-full overflow-y-auto">
+  <ul class="w-full p-3 text-white flex flex-col gap-2">
+    {
+      messagesJson.map(({ message, user }) => (
+        <ChatMessage message={message} user={user} />
+      ))
+    }
+  </ul>
+</section>

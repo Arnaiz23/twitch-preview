@@ -1,0 +1,54 @@
+---
+import SettingsIcon from "./Icons/Settings.astro";
+import TreasureIcon from "./Icons/Treasure.astro";
+import ConfettiIcon from "./Icons/Confetti.astro";
+import EmojiIcon from "./Icons/Emoji.astro";
+import InfoIcon from "./Icons/Info.astro";
+---
+
+<footer class="p-2">
+  <form class="flex flex-col gap-2 h-full">
+    <section class="flex flex-col">
+      <section
+        class="w-full border border-zinc-700 border-b-0 p-2 rounded-tl-md rounded-tr-md flex items-center justify-start gap-2 bg-[#1f1f23]"
+      >
+        <InfoIcon class="size-5 fill-zinc-400" />
+        <p class="text-[13px] font-semibold text-zinc-400">Slow Mode</p>
+      </section>
+      <section class="w-full">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Send a message"
+            class="w-full border-2 border-zinc-600 bg-transparent p-2 rounded-md text-[13px] text-white outline-none focus:border-violet-700"
+          />
+          <div
+            class="absolute right-2 bottom-2/4 translate-y-2/4 flex items-center gap-2"
+          >
+            <div class="hover:bg-zinc-700 p-1 cursor-pointer rounded">
+              <ConfettiIcon class="size-5 fill-zinc-200" />
+            </div>
+            <div class="hover:bg-zinc-700 p-1 cursor-pointer rounded">
+              <EmojiIcon class="size-5 fill-zinc-200" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section class="w-full flex justify-between items-center">
+      <div class="flex items-center justify-start gap-2">
+        <p class="text-zinc-400 text-[13px] font-semibold">142.6K</p>
+        <button class="py-1 px-2 bg-[#00db84] rounded-md"
+          ><TreasureIcon class="size-5 fill-black" /></button
+        >
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <SettingsIcon class="size-5 fill-white" />
+        <button
+          class="px-2 py-1 text-white bg-violet-600 hover:bg-violet-700 rounded-md text-[13px] font-semibold"
+          >Chat</button
+        >
+      </div>
+    </section>
+  </form>
+</footer>
