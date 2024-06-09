@@ -37,7 +37,7 @@ const POSITIONS: { [key: string]: { tooltip: string; triangle: string } } = {
   <slot />
   <div
     class={clsx(
-      `absolute ${POSITIONS[position].tooltip} w-max opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none`,
+      `absolute ${POSITIONS[position].tooltip} w-max opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none z-50`,
       { hidden: hidden },
     )}
   >
