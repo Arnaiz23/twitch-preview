@@ -4,6 +4,7 @@ import TreasureIcon from "./Icons/Treasure.astro";
 import ConfettiIcon from "./Icons/Confetti.astro";
 import EmojiIcon from "./Icons/Emoji.astro";
 import InfoIcon from "./Icons/Info.astro";
+import ButtonIcons from "./ButtonIcons.astro";
 ---
 
 <footer class="p-2">
@@ -43,7 +44,9 @@ import InfoIcon from "./Icons/Info.astro";
         >
       </div>
       <div class="flex items-center justify-center gap-2">
-        <SettingsIcon class="size-5 fill-white" />
+        <ButtonIcons title="Chat Settings" position="top">
+          <SettingsIcon class="size-5 fill-white" />
+        </ButtonIcons>
         <button
           class="px-2 py-1 text-white bg-violet-600 hover:bg-violet-700 rounded-md text-[13px] font-semibold"
           >Chat</button

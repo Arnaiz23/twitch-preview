@@ -1,7 +1,7 @@
 ---
 import clsx from "clsx";
 
-type Position = "bottom" | "right" | "left";
+type Position = "bottom" | "right" | "left" | "top";
 
 interface Props {
   title: string;
@@ -17,6 +17,11 @@ const POSITIONS: { [key: string]: { tooltip: string; triangle: string } } = {
     tooltip: "top-[140%] left-2/4 -translate-x-2/4",
     triangle:
       "left-2/4 border-b-8 border-b-white border-r-[6px] border-r-transparent border-l-[6px] border-l-transparent -translate-x-2/4",
+  },
+  top: {
+    tooltip: "bottom-[140%] left-2/4 -translate-x-2/4",
+    triangle:
+      "top-full left-2/4 border-t-8 border-t-white border-r-[6px] border-r-transparent border-l-[6px] border-l-transparent -translate-x-2/4",
   },
   right: {
     tooltip: "top-0 left-2/4 translate-x-2/4",
