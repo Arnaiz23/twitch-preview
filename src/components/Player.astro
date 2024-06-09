@@ -8,6 +8,13 @@ import BellIcon from "@/components/Icons/Bell.astro";
 import StarIcon from "@/components/Icons/Star.astro";
 import ArrowDownIcon from "@/components/Icons/ArrowDown.astro";
 import ChannelVideosSlider from "@/components/ChannelVideosSlider.astro";
+import PauseIcon from "@/components/Icons/Pause.astro";
+import PlayerPlayIcon from "@/components/Icons/PlayerPlay.astro";
+import SoundIcon from "@/components/Icons/Sound.astro";
+import SoundMuteIcon from "@/components/Icons/SoundMute.astro";
+import SettingsIcon from "@/components/Icons/Settings.astro";
+import TheatreIcon from "@/components/Icons/Theatre.astro";
+import FullScreenIcon from "@/components/Icons/FullScreen.astro";
 
 import streams from "@/data/recentBroadcasts.json";
 import highlightsStreams from "@/data/highlights.json";
@@ -27,9 +34,24 @@ const streamData: Channels = {
 ---
 
 <section id="player" class="w-full overflow-y-auto">
-  <picture class="w-full">
+  <picture class="w-full relative block group cursor-pointer">
     <source srcset="/preview.webp" type="image/webp" />
     <img src="/preview.png" class="aspect-video" alt="Video preview" />
+    <div
+      class="custom-player-controls translate-y-[10%] absolute bottom-0 z-10 left-0 flex justify-between items-center w-full p-2 bg-gradient-to-b from-transparent to-black opacity-0"
+    >
+      <div class="flex items-center gap-2">
+        <PauseIcon class="size-5 fill-white cursor-pointer" />
+        <PlayerPlayIcon class="size-5 fill-white cursor-pointer hidden" />
+        <SoundIcon class="size-5 fill-white cursor-pointer" />
+        <SoundMuteIcon class="size-5 fill-white cursor-pointer hidden" />
+      </div>
+      <div class="flex items-center gap-2">
+        <SettingsIcon class="size-5 fill-white cursor-pointer" />
+        <TheatreIcon class="size-5 fill-white cursor-pointer" />
+        <FullScreenIcon class="size-5 fill-white cursor-pointer" />
+      </div>
+    </div>
   </picture>
   <section class="w-full p-5">
     <header class="w-full">
@@ -144,5 +166,37 @@ const streamData: Channels = {
   /* Chrome */
   #player::-webkit-scrollbar {
     display: none;
+  }
+
+  /* @keyframes showControls { */
+  /*   0% { */
+  /*     opacity: 0; */
+  /*     transform: translateY(100%); */
+  /*   } */
+  /**/
+  /*   50% { */
+  /*     transform: translateY(0); */
+  /*   } */
+  /**/
+  /*   70% { */
+  /*     opacity: 1; */
+  /*   } */
+  /* } */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10%);
+    }
+    20% {
+      transform: translateY(0);
+    }
+    75% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  picture:hover .custom-player-controls {
+    animation: fadeIn 2s forwards;
   }
 </style>
