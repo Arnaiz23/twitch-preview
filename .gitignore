@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # unused images
 public/capture.png
+
+# Local Netlify folder
+.netlify
